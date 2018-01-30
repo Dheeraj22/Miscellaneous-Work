@@ -1,0 +1,23 @@
+body{
+    background: #81D4FA ;
+}
+
+.navbar{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bg{
+}
+
+.form-container{
+    background: #FBFBFB;
+    border: #42A5F5 solid;
+    padding: 50px 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 50px;
+}
+
+.form-container h1{
+    color: #1F60AC;
+    font-size: 52px;
+}
