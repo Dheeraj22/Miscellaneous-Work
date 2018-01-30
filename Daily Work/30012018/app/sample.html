@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Oauth">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-2">
+            <button class="btn btn-primary btn-block" ng-click = "onGoogleLogin()" value="authorize"> Authorize </button>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-primary btn-block" value="signout"> Sign out </button>
+        </div>
+    </div>
+</div>
+
+<h1> {{gmail.username + gmail.email}} </h1>
+<img ng-src = "g_image" style = "width: 100px; height:100px;">
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+    (function () {
+        var p = document.createElement('script');
+        p.type = "text/javascript";
+        p.async = true;
+        p.src = 'https://apis.google.com/js/client.js?onload=onLoadFunction';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(p,s);
+    })();
+</script>
+</body>
+</html>
