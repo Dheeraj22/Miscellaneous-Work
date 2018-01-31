@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> OAuth Experiment </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src = "angular-route.min.js"></script>
+    <script type = "text/javascript" src="script.js" ></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="amadeus_logo.png" height="100" width="433">
+            </a>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+
+<div class="Oauth" ng-app = "myApp" ng-controller="myCtrl">
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-2">
+        <button class="btn btn-primary btn-block" ng-click = "onGoogleLogin()" value="login"> Authorize </button>
+    </div>
+    <div class="col-lg-2">
+        <button class="btn btn-primary btn-block" onclick="logout()" value="signout"> Sign out </button>
+    </div>
+</div>
+<br><br>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <h4> {{"Your username is : " + gmail.username}} </h4>
+            <h4> {{"Your email is : " + gmail.email}} </h4>
+            <img ng-src = "{{g_image}}" style = "width: 100px; height:100px;">
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function logout()
+    {
+        gapi.auth.signOut();
+        location.reload();
+    }
+
+    function onLoadCallback()
+    {
+        gapi.client.setApiKey('AIzaSyB7NL1KOYMdh25Ptb_b0wlFUpTpAoSPCs4');
+        gapi.client.load('plus', 'v1',function(){});
+    }
+</script>
+<script type="text/javascript">
+    (function () {
+        var p = document.createElement('script');
+        p.type = "text/javascript";
+        p.async = true;
+        p.src = 'https://apis.google.com/js/client.js?onload=onLoadCallBack';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(p,s);
+    })();
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

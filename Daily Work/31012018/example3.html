@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Angular JS Tutorial</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src = "example3.js" type="text/javascript"></script>
+    <script src = "style.css" type="text/css"></script>
+</head>
+
+<body ng-app = "exam" ng-controller="examctrl">
+
+    <h1> Random Number 1 : {{randomNum1}} </h1>
+    <h1> Random Number 2 : {{randomNum2}} </h1>
+
+    <h2> Mood generator: {{mood}}</h2>
+
+    <ol start="2">
+        <li ng-repeat="grocery in groceries" ng-if = "$index > 0">
+            {{grocery.item + " : " + grocery.purchased}}
+        </li>
+    </ol>
+
+    <table>
+        <tr ng-repeat-start="grocery in groceries">
+            <td>{{grocery.item}}</td>
+        </tr>
+        <tr ng-repeat-end="grocery in groceries">
+            <td> {{grocery.purchased}} </td>
+        </tr>
+    </table>
+
+    <label> Change the first item: </label>
+    <input type="text" ng-model="groceries[0].item">
+
+    <label>
+        <input type = "checkbox" ng-model="changeBg">
+    </label>
+
+    <select ng-model="changeBg">
+        <option value="bluebg"> Blue Text </option>
+        <option value="blackbg"> Black Text </option>
+    </select>
+
+    <p ng-class="changeBg"> Change the text color </p>
+
+    <!--<ng-include src = "getList()"></ng-include>-->
+
+    <label>
+        <input type="text" ng-model="someNumber">
+    </label>
+    <div ng-switch="someNumber">
+        <p ng-switch-when="1"> You entered 1 </p>
+        <p ng-switch-when="2"> You entered 2 </p>
+        <p ng-switch-when="3"> You entered 3 </p>
+        <p ng-switch-default="1"> Follow directions</p>
+    </div>
+
+    <input ng-blur = "blur = blur + 1">
+    <h1> {{blur}}</h1>
+
+    <button ng-disabled = "disableButton"> Button </button>
+    <input type="checkbox" ng-model="disableButton">
+
+
+
+</body>
+</html>
