@@ -1,0 +1,24 @@
+**Elastic and Kibana server to be running at all times**
+
+TO REMEMBER:
+1) Delete old registry files in Filebeat (data\registry)
+2) Configure filebeat.yml by changing the path to your log file
+3) Run filebeat using the command: D:\Internship Files\Softwares\ELK\filebeat-6.1.3-windows-x86_64>filebeat -e -c filebeat.yml -d "publ
+ish"
+4) Create your logstash config file in your bin directory
+5) Run logstash using the command: D:\Internship Files\Softwares\ELK\logstash-6.1.3\bin>logstash -f first-pipeline.conf --config.reload
+.automatic
+6) Once all the data has been transferred, open kibana and type in the queries to obtain your result. Once such example being:
+
+GET /logstash-output-1/_search
+{
+  "query": {
+    "bool": {
+      "must": [    
+      { "match": { "eventName": "grok"}},
+      { "match": { "fatal_error_code": "FALSE"}}
+      ]
+  
+}
+}
+}
