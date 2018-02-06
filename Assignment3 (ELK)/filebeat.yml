@@ -1,0 +1,10 @@
+filebeat.prospectors:
+- type: log
+  paths:
+    - D:\Internship Files\Softwares\ELK\sample1.log 
+    
+output.logstash:
+  hosts: ["127.0.0.1:5044"] 
+  username: "logstash_system"
+  password: "lW^PZGtKsz~WQt+rR6jL"
+  
