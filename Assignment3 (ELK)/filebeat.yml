@@ -5,6 +5,6 @@ filebeat.prospectors:
     
 output.logstash:
   hosts: ["127.0.0.1:5044"] 
-  username: "logstash_system"
-  password: "lW^PZGtKsz~WQt+rR6jL"
+  username: "<your logstash username>"
+  password: "<your logstash password>"
   
